@@ -5,7 +5,7 @@ from PyQt5.QtGui import *
 from PyQt5.QtCore import *
 
 
-class Widget(QWidget):
+class QWidget(QWidget):
     def __init__(self, *args, **kwargs):
         super().__init__()
         self.setupUI()
@@ -30,3 +30,4 @@ class QMainWindow(QMainWindow):
     def setupUI(self):
         self.setMinimumSize(300, 150)
         self.setWindowFlag(Qt.FramelessWindowHint)
+
