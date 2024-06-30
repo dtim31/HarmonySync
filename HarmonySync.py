@@ -11,7 +11,7 @@ import multiprocessing
 from gui.templates import home_template, settings_template
 
 app_version = "Alpha"
-app_path = os.getcwd()
+app_path = os.getcwd(full_path=True)
 
 save_data = json.loads(open(f"{app_path}/save_data.json", "r").read())
 
@@ -25,11 +25,6 @@ settings_widget = settings_template.SettingsWidget(window)
 
 def startGUI():
     home_widget.show()
-    #QtTest.QTest.qWait(600)
-    #home_widget.hide()
-    #settings_widget.show()
-
-
 
 systray_icon = QSystemTrayIcon()
 systray_icon.setIcon(QIcon(f"{app_path}/assets/logo.png"))
@@ -46,6 +41,4 @@ systray_menu.addActions([startGUI_action, quit_action])
 
 systray_icon.setContextMenu(systray_menu)
 
-if __name__ == "__main__":
-    startGUI()
-    sys.exit(app.exec_())
+startGUI()
